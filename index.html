@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Monteiro Pinturas — pintura residencial e comercial. Conheça nossos projetos e solicite um orçamento.">
+<title>Monteiro Pinturas | Pintura Residencial e Comercial</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#f5c400;color:#111;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(0,0,0,.94);color:#fff;border-bottom:1px solid rgba(245,196,0,.3);backdrop-filter:blur(12px)}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.5px}
+.brand img{width:62px;height:62px;object-fit:contain}
+.brand-text{font-size:18px;line-height:.9}.brand-text span{display:block;color:#f5c400;font-size:12px;letter-spacing:3px;margin-top:5px}
+nav{display:flex;align-items:center;gap:30px;font-weight:800}
+nav a{position:relative;padding:29px 0}
+nav a:after{content:"";position:absolute;left:0;bottom:20px;width:0;height:3px;background:#f5c400;transition:.35s}
+nav a:hover:after{width:100%}
+.cta{background:#f5c400;color:#111;padding:14px 22px;border-radius:999px;font-weight:900;transition:.3s;white-space:nowrap}
+.cta:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(245,196,0,.25)}
+.menu{display:none;background:#f5c400;border:0;padding:10px 14px;font-weight:900}
+
+.hero{min-height:100vh;padding:130px 0 65px;background:#111;color:#fff;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero:before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;background:#f5c400;right:-300px;bottom:-400px;opacity:.9}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:.9fr 1.1fr;gap:45px;align-items:center}
+.kicker{color:#f5c400;font-size:14px;font-weight:900;letter-spacing:4px;margin-bottom:18px}
+h1{font-size:clamp(52px,7vw,92px);line-height:.88;letter-spacing:-5px}
+h1 span{color:#f5c400}
+.hero p{font-size:18px;color:#ddd;max-width:600px;margin:28px 0}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:16px 24px;border:2px solid #f5c400;font-weight:900}
+.btn.yellow{background:#f5c400;color:#111}.btn.outline{color:#f5c400}
+.hero-photo{height:min(650px,72vh);min-height:470px;position:relative;overflow:hidden;border:2px solid #f5c400;box-shadow:18px 18px 0 #f5c400;transform:rotate(1deg)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.hero-photo:hover img{transform:scale(1.045)}
+.scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:3px;color:#f5c400;animation:bob 1.7s infinite}
+@keyframes bob{50%{transform:translate(-50%,8px)}}
+
+section{padding:105px 0}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:45px}
+.section-head h2{font-size:clamp(42px,5vw,68px);line-height:.9;letter-spacing:-4px}
+.section-head p{max-width:440px;font-weight:700}
+
+.projects{background:#f5c400}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.card{grid-column:span 6;background:#111;color:#fff;padding:12px;overflow:hidden;transition:transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .55s}
+.card:nth-child(2),.card:nth-child(3){grid-column:span 3}
+.card:hover{transform:translateY(-12px);box-shadow:14px 14px 0 #111}
+.card-img{height:450px;overflow:hidden;position:relative;cursor:pointer;background:#ddd}
+.card:nth-child(2) .card-img,.card:nth-child(3) .card-img{height:330px}
+.card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s}
+.card:hover img{transform:scale(1.08);filter:saturate(1.08)}
+.card-img:after{content:"AMPLIAR FOTO";position:absolute;right:12px;bottom:12px;background:#f5c400;color:#111;padding:9px 12px;font-size:10px;font-weight:900;letter-spacing:1px;opacity:0;transform:translateY(10px);transition:.35s}
+.card:hover .card-img:after{opacity:1;transform:none}
+.card-info{padding:20px 8px 12px}
+.card-info small{color:#f5c400;font-weight:900;letter-spacing:2px}
+.card-info h3{font-size:26px;margin:7px 0}
+.card-info p{color:#ccc}
+
+.about{background:#111;color:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about h2{color:#f5c400;font-size:clamp(45px,5vw,70px);line-height:.9;letter-spacing:-4px}
+.about p{font-size:19px;color:#ddd;margin-top:22px;max-width:620px}
+.detail{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.detail div{border:1px solid #f5c400;padding:25px}
+.detail strong{display:block;color:#f5c400;font-size:38px}
+
+.contact{background:#f5c400}
+.contact-box{background:#111;color:#fff;padding:55px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.contact h2{font-size:clamp(42px,5vw,65px);line-height:.9;color:#f5c400;letter-spacing:-3px}
+.contact p{margin-top:18px;color:#ddd}
+footer{background:#111;color:#f5c400;padding:25px 0;font-weight:800}
+
+.reveal{opacity:0;transform:translateY(55px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.show{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal-left.show{opacity:1;transform:none}
+.reveal-scale{opacity:0;transform:scale(.9);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal-scale.show{opacity:1;transform:scale(1)}
+.card:nth-child(2){transition-delay:.12s}.card:nth-child(3){transition-delay:.24s}.card:nth-child(4){transition-delay:.36s}
+
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;padding:30px}
+.lightbox.open{display:flex}
+.lightbox-inner{width:min(1050px,95vw);max-height:90vh;display:grid;grid-template-columns:1.4fr .6fr;background:#111;color:#fff;border:2px solid #f5c400}
+.lightbox-img{min-height:500px}.lightbox-img img{width:100%;height:100%;object-fit:contain;display:block;background:#000}
+.lightbox-copy{padding:35px;display:flex;flex-direction:column;justify-content:center}
+.lightbox-copy small{color:#f5c400;font-weight:900;letter-spacing:2px}
+.lightbox-copy h3{font-size:35px;margin:10px 0}
+.lightbox-copy p{color:#ddd}
+.close{position:absolute;right:25px;top:20px;background:#f5c400;color:#111;border:0;font-size:25px;font-weight:900;width:45px;height:45px;cursor:pointer}
+
+@media(max-width:850px){
+ nav{display:none}.menu{display:block}
+ nav.mobile{display:flex;position:absolute;top:82px;left:0;right:0;background:#111;padding:20px;flex-direction:column;gap:14px;border-bottom:2px solid #f5c400}
+ nav.mobile a{padding:8px}
+ nav.mobile a:after{bottom:2px}
+ .hero-grid,.about-grid{grid-template-columns:1fr}
+ .hero-photo{height:520px;min-height:0}
+ .card,.card:nth-child(2),.card:nth-child(3){grid-column:span 12}
+ .card-img,.card:nth-child(2) .card-img,.card:nth-child(3) .card-img{height:420px}
+ .contact-box{padding:35px;display:block}.contact .cta{display:inline-block;margin-top:25px}
+ .lightbox-inner{grid-template-columns:1fr;max-height:88vh;overflow:auto}.lightbox-img{height:55vh;min-height:0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.reveal-left,.reveal-scale{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container nav">
+  <a class="brand" href="#inicio">
+    <img src="images/hero.png" alt="Monteiro Pinturas">
+    <div class="brand-text">MONTEIRO<span>PINTURAS</span></div>
+  </a>
+  <nav>
+    <a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#sobre">Sobre Nós</a><a href="#projetos">Projetos</a><a href="#contato">Contato</a>
+  </nav>
+  <a class="cta" href="#contato">Solicite seu orçamento</a>
+  <button class="menu">MENU</button>
+</div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+<div class="container hero-grid">
+  <div class="reveal-left">
+    <div class="kicker">TRANSFORMANDO AMBIENTES</div>
+    <h1>COM COR,<br><span>QUALIDADE</span><br>E CONFIANÇA</h1>
+    <p>A Monteiro Pinturas é especializada em pinturas residenciais e comerciais, trazendo mais vida, beleza e proteção para o seu espaço.</p>
+    <div class="hero-actions"><a class="btn yellow" href="#projetos">VER PROJETOS →</a><a class="btn outline" href="#contato">ORÇAMENTO</a></div>
+  </div>
+  <div class="hero-photo reveal-scale"><img src="images/hero.png" alt="Monteiro Pinturas em destaque"></div>
+</div>
+<div class="scroll">ROLE PARA EXPLORAR ↓</div>
+</section>
+
+<section id="servicos" class="reveal">
+<div class="container">
+  <div class="section-head"><h2>Serviços</h2><p>Serviços apresentados de acordo com os trabalhos enviados para o portfólio.</p></div>
+  <div class="grid">
+    <div class="card reveal" style="grid-column:span 4"><div class="card-info"><small>01</small><h3>Pintura externa</h3><p>Trabalho de pintura e acabamento em área externa.</p></div></div>
+    <div class="card reveal" style="grid-column:span 4"><div class="card-info"><small>02</small><h3>Pintura interna</h3><p>Renovação e acabamento de ambientes internos.</p></div></div>
+    <div class="card reveal" style="grid-column:span 4"><div class="card-info"><small>03</small><h3>Acabamento de paredes</h3><p>Trabalho realizado diretamente nas superfícies das paredes.</p></div></div>
+  </div>
+</div>
+</section>
+
+<section class="projects" id="projetos">
+<div class="container">
+  <div class="section-head reveal"><h2>Projetos</h2><p>Cada projeto abaixo utiliza uma das fotos que você enviou. Clique em uma imagem para ampliar.</p></div>
+  <div class="grid">
+    <article class="card reveal-scale" data-title="Textura em parede externa" data-type="Pintura e acabamento" data-desc="Trabalho realizado em uma parede externa, com acabamento texturizado em toda a superfície.">
+      <div class="card-img"><img src="images/projeto-01.png" alt="Textura em parede externa"></div><div class="card-info"><small>PROJETO 01</small><h3>Textura em parede externa</h3><p>Acabamento texturizado aplicado em área externa.</p></div>
+    </article>
+    <article class="card reveal-scale" data-title="Ambiente residencial" data-type="Pintura interna" data-desc="Ambiente residencial com paredes em tom claro e acabamento uniforme.">
+      <div class="card-img"><img src="images/projeto-02.jpg" alt="Ambiente residencial"></div><div class="card-info"><small>PROJETO 02</small><h3>Ambiente residencial</h3><p>Pintura interna com acabamento uniforme.</p></div>
+    </article>
+    <article class="card reveal-scale" data-title="Fachada residencial" data-type="Pintura externa" data-desc="Fachada residencial com composição de tons claros e escuros, destacando os volumes da construção.">
+      <div class="card-img"><img src="images/projeto-03.jpg" alt="Fachada residencial"></div><div class="card-info"><small>PROJETO 03</small><h3>Fachada residencial</h3><p>Acabamento externo em fachada residencial.</p></div>
+    </article>
+    <article class="card reveal-scale" data-title="Pintura de ambiente interno" data-type="Pintura interna" data-desc="Ambiente interno com paredes claras e uma parede em tom cinza, criando contraste no espaço.">
+      <div class="card-img"><img src="images/projeto-04.jpg" alt="Pintura de ambiente interno"></div><div class="card-info"><small>PROJETO 04</small><h3>Pintura de ambiente interno</h3><p>Paredes claras com parede de destaque em cinza.</p></div>
+    </article>
+  </div>
+</div>
+</section>
+
+<section class="about" id="sobre">
+<div class="container about-grid">
+  <div class="reveal-left"><h2>QUALIDADE<br>EM CADA<br>DETALHE.</h2><p>Um portfólio feito para mostrar o trabalho realizado e apresentar, de forma clara, os ambientes e superfícies trabalhados.</p></div>
+  <div class="detail reveal-scale"><div><strong>01</strong>Preparação</div><div><strong>02</strong>Pintura</div><div><strong>03</strong>Acabamento</div><div><strong>04</strong>Entrega</div></div>
+</div>
+</section>
+
+<section class="contact" id="contato">
+<div class="container">
+<div class="contact-box reveal-scale">
+<div><h2>SEU ESPAÇO.<br>DO SEU JEITO.</h2><p>Entre em contato para solicitar seu orçamento.</p></div>
+<a class="cta" href="https://wa.me/5582991384656" target="_blank">FALAR NO WHATSAPP →</a><a class="cta" href="https://www.instagram.com/monteiropinturas__/" target="_blank" style="margin-left:10px">INSTAGRAM ↗</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="container">© 2026 Monteiro Pinturas — Todos os direitos reservados. &nbsp; | &nbsp; Instagram: @monteiropinturas__ &nbsp; | &nbsp; WhatsApp: (82) 99138-4656</div></footer>
+
+<div class="lightbox" id="lightbox">
+<button class="close" aria-label="Fechar">×</button>
+<div class="lightbox-inner">
+  <div class="lightbox-img"><img id="lightboxImage" src="" alt=""></div>
+  <div class="lightbox-copy"><small id="lightboxType"></small><h3 id="lightboxTitle"></h3><p id="lightboxDesc"></p></div>
+</div>
+</div>
+
+<script>
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -50px"});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-scale').forEach(el=>observer.observe(el));
+
+const nav=document.querySelector('nav');
+document.querySelector('.menu').onclick=()=>nav.classList.toggle('mobile');
+document.querySelectorAll('nav a').forEach(a=>a.onclick=()=>nav.classList.remove('mobile'));
+
+const lightbox=document.getElementById('lightbox');
+const lbImg=document.getElementById('lightboxImage');
+document.querySelectorAll('.card[data-title]').forEach(card=>{
+  card.querySelector('.card-img').onclick=()=>{
+    lbImg.src=card.querySelector('img').src;
+    lbImg.alt=card.querySelector('img').alt;
+    document.getElementById('lightboxTitle').textContent=card.dataset.title;
+    document.getElementById('lightboxType').textContent=card.dataset.type;
+    document.getElementById('lightboxDesc').textContent=card.dataset.desc;
+    lightbox.classList.add('open');
+  };
+});
+document.querySelector('.close').onclick=()=>lightbox.classList.remove('open');
+lightbox.onclick=e=>{if(e.target===lightbox)lightbox.classList.remove('open')};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lightbox.classList.remove('open')});
+</script>
+</body>
+</html>
